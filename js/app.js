@@ -30,19 +30,52 @@ async function getTodos()
 {
    // Door await i.c.m. async wordt de call naar de API hieronder
    // asynchroon op de achtergrond uitgevoerd
-   await fetch('http://localhost/todowo/api?cmd=all')
-      .then(response => response.json())
-      .then(data => {
-         todos = data;    // De ontvangen data opslaan in de lokale variabele
-         fillSelect();     // Helper function om de select elementen te vullen
-                           // met de valuta
-      })
-      .catch(error => console.error('API ERROR: ' + error));
+   await fetch("http://localhost/todo-api/api?cmd=all")
+   .then(response => response.json())
+   .then(data => {
+      todos = data;
+      fillSelect();
+   })
+   .catch(error => console.log('error', error));
 }
+
 
 function fillSelect()
 {
-   todos.forEach(currency => {
+   var i = 0;
+   todos.forEach(todos => {
+      i++;
 
+      const card = document.createElement("div");
+      card.className = "card";
+      card.setAttribute("id", "card" + i);
+
+      const element = document.getElementById("cardgrid");
+      const child = document.getElementById("addcard");
+      element.insertBefore(card,child);
+
+      const flex = document.createElement("div");
+      flex.className = "flex";
+      flex.setAttribute("id", "flex" + i);
+      const element2 = document.getElementById("card" + i);
+      element2.appendChild(flex);
+
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      const element3 = document.getElementById("flex" + i);
+      element3.appendChild(dot);
+
+      const h1 = document.createElement("h1");
+      const node = document.createTextNode(todos['task']);
+      h1.appendChild(node);
+      const element4 = document.getElementById("flex" + i);
+      element4.appendChild(h1);
+
+      const date = document.createElement("p");
+      date.className = "date";
+      const node2 = document.createTextNode(todos['startdate'] + " - " + todos['enddate']);
+      date.appendChild(node2);
+      const element5 = document.getElementById("card" + i);
+      element5.appendChild(date);
    });
 }

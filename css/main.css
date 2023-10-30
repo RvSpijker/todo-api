@@ -42,7 +42,7 @@ header {
 
 .cardgrid {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-items: center;
     width: 100vw;
     padding: 80px;
@@ -86,7 +86,6 @@ header {
 
 .flex {
     display: flex;
-    flex-shrink
 }
 
 /* addcard */
@@ -104,4 +103,40 @@ header {
     height: 100%;
     text-align: center;
     padding: 90px 0;
+    transition: transform 0.3s ease;
 }
+
+.plus:hover {
+    transform: rotate(90deg);
+}
+
+/* new task form */
+
+.datelabel {
+    margin-top: 7px;
+}
+
+.textarea {
+    height: 100px;
+    resize: none;
+}
+
+.submit {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--primary);
+    font-size: large;
+    border: solid black;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+/* .dateinput {
+
+} */
