@@ -1,0 +1,62 @@
+@media only screen and (max-width: 1300px) {
+
+    :root {
+        --text: #130e01;
+        --background: #fffaeb;
+        --primary: #ff8400;
+        --secondary: #fff5d6;
+        --accent: #cf4307;
+    }
+
+    .cardgrid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-items: center;
+        width: 100vw;
+        padding: 80px;
+        column-gap: auto;
+        row-gap: 80px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    :root {
+        --text: #0e2a09;
+        --background: #ddf7da;
+        --primary: #86e4a9;
+        --secondary: #b8efe8;
+        --accent: #29b3a0;
+    }
+
+    .cardgrid {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-items: center;
+        width: 100vw;
+        padding: 80px;
+        column-gap: auto;
+        row-gap: 80px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    :root {
+        --text: #041008;
+        --background: #e7f9ee;
+        --primary: #64d88d;
+        --secondary: #c1f0d2;
+        --accent: #2eb85e;
+    }
+
+    .cardgrid {
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: center;
+        width: 100vw;
+        padding: 80px;
+        column-gap: auto;
+        row-gap: 80px;
+    }
+}

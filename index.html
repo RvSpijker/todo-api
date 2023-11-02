@@ -6,34 +6,31 @@
     <title>TODOwO</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/phone.css">
     <link rel="shortcut icon" href="img/todologo.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <img class="logoimg" src="img/todologo.png" alt="logo">
+        <img class="logoimg" src="img/todologo2.png" alt="logo">
         <h1 class="logotxt">wO</h1>
     </header>
     <div class="cardgrid" id="cardgrid">
-        <!-- <div class="card">
+        <div class="card">
             <div class="flex">
                 <span class="dot"></span>
-                <h1>task</h1>
+                <h1>task gay</h1>
+                <img class="done" src="img/done.png" alt="done">
             </div>
             <p class="date">12-12-2024 - 13-12-2024</p>
-        </div> -->
-        <div class="addcard" id="addcard">
-            <h1 class="plus">+</h1>
         </div>
-        <div class="card">
+        <div class="addcard" id="addcard">
+        <button onclick="cardSwap()" class="rmvbtnstyle btn"><h1 class="plus">+</h1></button>
+        </div>
+        <div class="card" id="addtask" style="display: none;">
+
             <label for="task"><h2>task:</h2></label>
             <textarea id="task" class="textarea"></textarea>
 
-            <label for="startdate" class="datelabel"><h2>startdate:</h2></label>
-            <input id="startdate" class="dateinput" type="date">
-
-            <label for="enddate" class="datelabel"><h2>enddate:</h2></label>
-            <input id="enddate" class="dateinput" type="date">
-            
             <button type="submit" class="submit">Save</button>
         </div>
     </div>

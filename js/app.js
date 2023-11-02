@@ -71,10 +71,24 @@ function fillSelect()
       const element4 = document.getElementById("flex" + i);
       element4.appendChild(h1);
 
+      if(todos['done']) {
+         const done = document.createElement("img");
+         done.className = "done";
+         done.src = "img/done.png";
+         element3.appendChild(done);
+      }
+
       const date = document.createElement("p");
       date.className = "date";
-      const node2 = document.createTextNode(todos['startdate'] + " - " + todos['enddate']);
-      date.appendChild(node2);
+
+      if (todos['enddate']) {
+         const node2 = document.createTextNode(todos['startdate'] + " - " + todos['enddate']);
+         date.appendChild(node2);
+      } else {
+         const node2 = document.createTextNode(todos['startdate']);
+         date.appendChild(node2);
+      }
+
       const element5 = document.getElementById("card" + i);
       element5.appendChild(date);
    });
