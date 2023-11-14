@@ -25,8 +25,11 @@ function getAllTodos()
 
 function createTodos()
 {
-   $data = $_POST["data"];
+   // task data ophalen
+   $data = file_get_contents('php://input');
+   preg_match('/name="task"\r\n\r\n(.*?)\r\n/', $data, $matches);
+   $taskValue = $matches[1];
 
-   $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('1', '$data')";
+   $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('1', '$taskValue')";
    Database::query($sql);
 }

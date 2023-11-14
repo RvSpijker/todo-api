@@ -9,9 +9,13 @@ $cmd = '';
 //     // We simuleren hier het afhandelen van een POST-request
 //     header('Content-Type: application/json');
 //     header('HTTP/1.1 200 Ok');
-//     echo json_encode($_POST);
-//     createTodos();
+//     $data = file_get_contents('php://input');
 
+//     // Use a regular expression to extract the value of "task"
+//     preg_match('/name="task"\r\n\r\n(.*?)\r\n/', $data, $matches);
+//     $taskValue = $matches[1];
+
+//     echo $taskValue;
 //     die();
 // }
 
