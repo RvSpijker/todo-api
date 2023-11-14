@@ -87,23 +87,23 @@ class Database
     *
     * @return array        De record
     */
-   public static function get(): array
-   {
-      $result = [];
+   // public static function get(): array
+   // {
+   //    $result = [];
 
-      // Als er een statement is dan heeft het pas zin om de data te halen uit de DB
-      if (!is_null(self::$dbStatement)) {
-         if (self::$dbStatement->rowCount() > 1)
-            $result = self::getAll();
-         else
-            $result =  self::$dbStatement->fetch(PDO::FETCH_ASSOC);
+   //    // Als er een statement is dan heeft het pas zin om de data te halen uit de DB
+   //    if (!is_null(self::$dbStatement)) {
+   //       if (self::$dbStatement->rowCount() > 1)
+   //          $result = self::getAll();
+   //       else
+   //          $result =  self::$dbStatement->fetch(PDO::FETCH_ASSOC);
 
-         if (!$result)
-            $result = [];     // Er is blijkbaar geen data beschikbaar
-      }
+   //       if (!$result)
+   //          $result = [];     // Er is blijkbaar geen data beschikbaar
+   //    }
 
-      return $result;
-   }
+   //    return $result;
+   // }
 
 
    /**

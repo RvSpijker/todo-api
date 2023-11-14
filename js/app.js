@@ -13,11 +13,11 @@ let todos = [];
  * nadat de browser klaar is met het verwerken van alle
  * HTML en CSS
  */
-window.onload = function () {
-   // In deze functie worden alle todos gegevens opgevraagd
-   // via een API call
-   getTodos();
-};
+// window.onload = function () {
+//    // In deze functie worden alle todos gegevens opgevraagd
+//    // via een API call
+   
+// };
 
 /**
  * getCurrencies
@@ -93,3 +93,4 @@ function fillSelect()
       element5.appendChild(date);
    });
 }
+
