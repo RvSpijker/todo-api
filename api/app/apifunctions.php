@@ -22,10 +22,21 @@ function getAllTodos()
 
 function getTodos()
 {
-   global $user_id;
-   $sql = "SELECT * FROM `todos` WHERE `user_id` = $user_id";
+   global $username;
+   
+   $sql = "SELECT todos.*
+   FROM todos
+   INNER JOIN users
+   WHERE users.username = '$username'";
+
    Database::query($sql);
    $rows = Database::getAll();
+
+   // als user niet bestaat maak user aan
+   if (count($rows) == 0) {
+      $sql = "INSERT INTO `users` (`username`) VALUES ('$username')";
+      Database::query($sql);
+   }
 
    header('Content-Type: application/json');
    echo json_encode($rows);

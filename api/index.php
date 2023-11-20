@@ -3,14 +3,14 @@
 @include_once('app/apifunctions.php');
 
 $cmd = '';
-$user_id = '';
+$username = '';
 
 if(isset($_GET['cmd']) ) {
     $cmd = strtolower($_GET['cmd']);
 }
 
-if(isset($_GET['id']) ) {
-    $user_id = $_GET['id'];
+if(isset($_GET['name']) ) {
+    $username = $_GET['name'];
     getTodos();
     die();
 }
