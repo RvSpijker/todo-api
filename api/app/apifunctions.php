@@ -1,8 +1,5 @@
 <?php
-
 @include_once('Database.php');
-
-$cmd = '';
 
 // POST SIMULATIE
 // if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,6 +13,17 @@ $cmd = '';
 function getAllTodos()
 {
    $sql = "SELECT * FROM `todos`";
+   Database::query($sql);
+   $rows = Database::getAll();
+
+   header('Content-Type: application/json');
+   echo json_encode($rows);
+}
+
+function getTodos()
+{
+   global $user_id;
+   $sql = "SELECT * FROM `todos` WHERE `user_id` = $user_id";
    Database::query($sql);
    $rows = Database::getAll();
 

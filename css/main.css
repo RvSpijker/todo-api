@@ -152,15 +152,19 @@ header {
 }
 
 .textarea {
-    height: 100px;
+    border-radius: 15px;
+    width: 100%;
+    padding: 5px;
+    height: 200px;
     resize: none;
 }
 
 .submit {
-    margin-top: auto;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100px;
+    margin-top: 10px;
+    width: 50%;
     height: 30px;
     border-radius: 5px;
     background-color: var(--primary);

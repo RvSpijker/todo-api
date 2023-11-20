@@ -31,8 +31,11 @@ async function createNewTodo()
         redirect: 'follow'
     };
 
-    fetch("http://localhost/todo-api/api/", requestOptions)
+    await fetch("http://localhost/todo-api/api/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+
+    // refresh page
+    location.reload();
 }

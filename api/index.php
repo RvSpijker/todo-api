@@ -3,6 +3,31 @@
 @include_once('app/apifunctions.php');
 
 $cmd = '';
+$user_id = '';
+
+if(isset($_GET['cmd']) ) {
+    $cmd = strtolower($_GET['cmd']);
+}
+
+if(isset($_GET['id']) ) {
+    $user_id = $_GET['id'];
+    getTodos();
+    die();
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    createTodos();
+    die();
+}
+
+switch($cmd) {
+    case 'all':                  
+        getAllTodos();   // Geef alle todos terug
+        break;
+        
+    // default:
+    //     getTodos();
+    }
 
 // POST SIMULATIE
 // if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -18,16 +43,3 @@ $cmd = '';
 //     echo $taskValue;
 //     die();
 // }
-
-if(isset($_GET['cmd']) ) {
-    $cmd = strtolower($_GET['cmd']);
-}
-
-switch($cmd) {
-    case 'all':                   // Geef alle todos terug
-        getAllTodos();
-        break;
-        
-    default:                 // Maak een nieuwe todos aan
-        createTodos();
-    }
