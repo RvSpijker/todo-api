@@ -30,7 +30,7 @@ async function getTodos()
 {
    // Door await i.c.m. async wordt de call naar de API hieronder
    // asynchroon op de achtergrond uitgevoerd
-   const name = localStorage.name;
+   var name = localStorage.name;
    await fetch("http://localhost/todo-api/api?name=" + name)
    .then(response => response.json())
    .then(data => {

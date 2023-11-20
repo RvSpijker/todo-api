@@ -24,10 +24,11 @@ function getTodos()
 {
    global $username;
    
-   $sql = "SELECT todos.*
-   FROM todos
-   INNER JOIN users
-   WHERE users.username = '$username'";
+   $sql = "SELECT *
+FROM todos
+INNER JOIN users
+ON todos.user_id=users.id
+WHERE users.username = '$username'";
 
    Database::query($sql);
    $rows = Database::getAll();
@@ -36,19 +37,24 @@ function getTodos()
    if (count($rows) == 0) {
       $sql = "INSERT INTO `users` (`username`) VALUES ('$username')";
       Database::query($sql);
+   } else {
+      header('Content-Type: application/json');
+      echo json_encode($rows);
    }
 
-   header('Content-Type: application/json');
-   echo json_encode($rows);
 }
 
 function createTodos()
 {
    // task data ophalen
-   $data = file_get_contents('php://input');
-   preg_match('/name="task"\r\n\r\n(.*?)\r\n/', $data, $matches);
-   $taskValue = $matches[1];
+   $name = $_POST['name'];
+   $task = $_POST['task'];
 
-   $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('1', '$taskValue')";
+   $sql = "SELECT id FROM users WHERE username = '$name'";
+   Database::query($sql);
+   $rows = Database::getAll();
+   $user_id = $rows[0]['id'];
+
+   $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('$user_id', '$task')";
    Database::query($sql);
 }
