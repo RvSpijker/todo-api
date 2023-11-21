@@ -46,52 +46,38 @@ function fillSelect()
    var i = 0;
    todos.forEach(todos => {
       i++;
-
-      const card = document.createElement("div");
-      card.className = "card";
-      card.setAttribute("id", "card" + i);
-
-      const element = document.getElementById("cardgrid");
-      const child = document.getElementById("addcard");
-      element.insertBefore(card,child);
-
-      const flex = document.createElement("div");
-      flex.className = "flex";
-      flex.setAttribute("id", "flex" + i);
-      const element2 = document.getElementById("card" + i);
-      element2.appendChild(flex);
-
-      const dot = document.createElement("span");
-      dot.className = "dot";
-      const element3 = document.getElementById("flex" + i);
-      element3.appendChild(dot);
-
-      const h1 = document.createElement("h1");
-      const node = document.createTextNode(todos['task']);
-      h1.appendChild(node);
-      const element4 = document.getElementById("flex" + i);
-      element4.appendChild(h1);
-
-      if(todos['done']) {
-         const done = document.createElement("img");
-         done.className = "done";
-         done.src = "img/done.png";
-         element3.appendChild(done);
-      }
-
-      const date = document.createElement("p");
-      date.className = "date";
-
-      if (todos['enddate']) {
-         const node2 = document.createTextNode(todos['startdate'] + " - " + todos['enddate']);
-         date.appendChild(node2);
+      
+      if(todos['done'] == 1) {
+      var htmlCode = `
+         <div class="card">
+            <div class="flex">
+               <button onclick="taskDone()" class="dotbtn"><span class="dot2"></span></button>
+               <h1 class="task">${todos['task']}</h1>
+               <img class="done" src="img/done.png" alt="done">
+            </div>
+            <div class="datecontainer">
+               <p class="date">${todos['startdate']} - ${todos['enddate']}</p>
+               <button id="${todos['id']}" onclick="taskDelete(this.id)" class="trashbtn"><i class="fa-solid fa-trash trash"></i></button>
+            </div>
+         </div>
+         `;
       } else {
-         const node2 = document.createTextNode(todos['startdate']);
-         date.appendChild(node2);
+      var htmlCode = `
+         <div class="card">
+            <div class="flex">
+               <button id="${todos['id']}" onclick="taskDone(this.id)" class="dotbtn"><span class="dot"></span></button>
+               <h1 class="task">${todos['task']}</h1>
+            </div>
+            <div class="datecontainer">
+               <p class="date">${todos['startdate']}</p>
+               <button id="${todos['id']}" onclick="taskDelete(this.id)" class="trashbtn"><i class="fa-solid fa-trash trash"></i></button>
+            </div>
+         </div>
+         `;
       }
 
-      const element5 = document.getElementById("card" + i);
-      element5.appendChild(date);
+   // code voor addcard inserten
+   document.getElementById("addcard").insertAdjacentHTML('beforebegin', htmlCode);
    });
 }
 

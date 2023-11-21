@@ -1,15 +1,6 @@
 <?php
 @include_once('Database.php');
 
-// POST SIMULATIE
-// if($_SERVER['REQUEST_METHOD'] == 'POST') {
-//    // We simuleren hier het afhandelen van een POST-request
-//    header('Content-Type: application/json');
-//    header('HTTP/1.1 200 Ok');
-//    echo json_encode($_POST);
-//    die();
-// }
-
 function getAllTodos()
 {
    $sql = "SELECT * FROM `todos`";
@@ -24,11 +15,7 @@ function getTodos()
 {
    global $username;
    
-   $sql = "SELECT *
-FROM todos
-INNER JOIN users
-ON todos.user_id=users.id
-WHERE users.username = '$username'";
+   $sql = "SELECT * FROM `users` WHERE `username` = '$username'";
 
    Database::query($sql);
    $rows = Database::getAll();
@@ -38,6 +25,15 @@ WHERE users.username = '$username'";
       $sql = "INSERT INTO `users` (`username`) VALUES ('$username')";
       Database::query($sql);
    } else {
+      $sql = "SELECT todos.id, todos.task, todos.startdate, todos.enddate, todos.done, todos.user_id,  users.username
+      FROM todos
+      INNER JOIN users
+      ON todos.user_id=users.id
+      WHERE users.username = '$username'";
+
+      Database::query($sql);
+      $rows = Database::getAll();
+
       header('Content-Type: application/json');
       echo json_encode($rows);
    }
@@ -56,5 +52,20 @@ function createTodos()
    $user_id = $rows[0]['id'];
 
    $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('$user_id', '$task')";
+   Database::query($sql);
+}
+
+function todoDone()
+{
+   $id = $_GET['id'];
+   $enddate = date("Y-m-d");
+   $sql = "UPDATE `todos` SET `done` = '1', `enddate` = '$enddate' WHERE `todos`.`id` = $id";
+   Database::query($sql);
+}
+
+function todoDelete()
+{
+   $id = $_GET['id'];
+   $sql = "DELETE FROM `todos` WHERE `todos`.`id` = $id";
    Database::query($sql);
 }

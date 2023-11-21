@@ -74,22 +74,54 @@ header {
     padding: 15px;
 }
 
+.datecontainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .date {
     text-align: center;
     margin-top: auto;
     font-size: medium;
+    width: 90%;
+    margin: auto;
+    float: left;
+}
+
+.trash {
+    float: left;
+    font-size: medium;
+    margin-left: -10px;
+}
+
+.trashbtn {
+    /* remove button style */
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
 }
 
 .dot {
-    margin-top: 5px;
-    height: 20px;
-    width: 20px;
-    min-height: 20px;
-    min-width: 20px;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     display: inline-block;
     border: solid 3px var(--accent);
     margin-right: 5px;
+}
+
+.dot2 {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    display: inline-block;
+    border: solid 3px var(--accent);
+    margin-right: 5px;
+    background-color: var(--accent);
 }
 
 .dot:hover {
@@ -105,6 +137,17 @@ header {
     position: absolute;
     width: 250px;
     top: 50px;
+    pointer-events: none;
+}
+
+.task {
+    width: 90%;
+    max-width: 90%;
+    height: 250px;
+    max-height: 250px;
+    word-wrap: break-word;
+    overflow: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /* addcard */
@@ -174,6 +217,23 @@ header {
 
 .submit:hover {
     cursor: pointer;
+}
+
+.dotbtn {
+    /*  remove button style */
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 /* .dateinput {

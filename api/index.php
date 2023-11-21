@@ -20,14 +20,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     die();
 }
 
+if($_SERVER['REQUEST_METHOD'] == 'PUT') {
+    todoDone();
+    die();
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    todoDelete();
+    die();
+}
+
 switch($cmd) {
     case 'all':                  
         getAllTodos();   // Geef alle todos terug
         break;
-        
-    // default:
-    //     getTodos();
-    }
+}
 
 // POST SIMULATIE
 // if($_SERVER['REQUEST_METHOD'] == 'POST') {

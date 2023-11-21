@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/phone.css">
     <link rel="shortcut icon" href="img/todologo.png" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <img class="logoimg" src="img/todologo2.png" alt="logo">
@@ -17,14 +18,17 @@
     <div class="cardgrid" id="cardgrid">
         <div class="card">
             <div class="flex">
-                <span class="dot"></span>
-                <h1>task</h1>
+                <button id="1" onclick="taskDone(this.id)" class="dotbtn"><span class="dot"></span></button>
+                <h1 class="task">exemple task</h1>
                 <img class="done" src="img/done.png" alt="done">
             </div>
-            <p class="date">12-12-2024 - 13-12-2024</p>
+            <div class="datecontainer">
+                <p class="date">12-12-2024 - 13-12-2024</p>
+                <button id="1" onclick="taskDelete(this.id)" class="trashbtn"><i class="fa-solid fa-trash trash"></i></button>
+            </div>
         </div>
         <div class="addcard" id="addcard">
-        <button onclick="cardSwap()" class="rmvbtnstyle btn"><h1 class="plus">+</h1></button>
+        <button id="1" onclick="cardSwap(this.id)" class="rmvbtnstyle btn"><h1 class="plus">+</h1></button>
         </div>
         <div class="card" id="addtask" style="display: none;">
             <form id="form">
@@ -39,5 +43,8 @@
     <script type="text/javascript" src="js/form.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/taskdone.js"></script>
+    <script type="text/javascript" src="js/taskdelete.js"></script>
+    <script src="https://kit.fontawesome.com/ded3297a45.js" crossorigin="anonymous"></script>
 </body>
 </html>
