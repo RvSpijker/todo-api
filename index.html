@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <form id="form">
-        <label for="name"><h2>Naam:</h2></label>
-        <input type="name" id="name" required></input>
 
-        <button id="submit" type="submit" class="submit">Go</button>
+<body>
+    <header>
+        <img class="logoimg" src="img/todologo2.png" alt="logo">
+        <h1 class="logotxt">wO</h1>
+    </header>
+    <form id="form" class="loginform">
+        <label class="loginlabel" for="name"><h2>Name:</h2></label>
+        <input class="logininput" type="name" id="name" required></input>
+        <br>
+        <button class="loginbtn" id="submit" type="submit">Go</button>
     </form>
     <script type="text/javascript" src="js/login.js"></script>
 </body>

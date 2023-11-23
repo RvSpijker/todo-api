@@ -58,9 +58,20 @@ function createTodos()
 function todoDone()
 {
    $id = $_GET['id'];
-   $enddate = date("Y-m-d");
-   $sql = "UPDATE `todos` SET `done` = '1', `enddate` = '$enddate' WHERE `todos`.`id` = $id";
+   $sql = "SELECT * FROM `todos` WHERE `id` = '$id'";
+
    Database::query($sql);
+   $rows = Database::getAll();
+
+   if ($rows[0]['done'] == 1) {
+      $enddate = null;
+      $sql = "UPDATE `todos` SET `done` = '0', `enddate` = '$enddate' WHERE `todos`.`id` = $id";
+      Database::query($sql);
+   } else {
+      $enddate = date("Y-m-d");
+      $sql = "UPDATE `todos` SET `done` = '1', `enddate` = '$enddate' WHERE `todos`.`id` = $id";
+      Database::query($sql);
+   }
 }
 
 function todoDelete()

@@ -45,6 +45,7 @@ class Database
       return true;
    }
 
+
    /**
     * query
     * -----
@@ -77,35 +78,7 @@ class Database
       return true;
    }
 
-   /**
-    * get
-    * ---
-    * Met deze method kunnen een enkele record binnenhalen
-    * Uiteraard is dit een record op basis van de result set die
-    * op de database server klaar staat na een succesvolle run
-    * van een SQL-statement.
-    *
-    * @return array        De record
-    */
-   // public static function get(): array
-   // {
-   //    $result = [];
-
-   //    // Als er een statement is dan heeft het pas zin om de data te halen uit de DB
-   //    if (!is_null(self::$dbStatement)) {
-   //       if (self::$dbStatement->rowCount() > 1)
-   //          $result = self::getAll();
-   //       else
-   //          $result =  self::$dbStatement->fetch(PDO::FETCH_ASSOC);
-
-   //       if (!$result)
-   //          $result = [];     // Er is blijkbaar geen data beschikbaar
-   //    }
-
-   //    return $result;
-   // }
-
-
+   
    /**
     * getAll
     * ------

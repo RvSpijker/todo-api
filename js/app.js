@@ -51,7 +51,7 @@ function fillSelect()
       var htmlCode = `
          <div class="card">
             <div class="flex">
-               <button onclick="taskDone()" class="dotbtn"><span class="dot2"></span></button>
+               <button id="${todos['id']}" onclick="taskDone(this.id)" class="dotbtn"><span class="dot2"></span></button>
                <h1 class="task">${todos['task']}</h1>
                <img class="done" src="img/done.png" alt="done">
             </div>

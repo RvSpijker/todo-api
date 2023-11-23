@@ -52,16 +52,6 @@ header {
 
 /* card */
 
-.cardgrid {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-items: center;
-    width: 100vw;
-    padding: 80px;
-    column-gap: auto;
-    row-gap: 80px;
-}
-
 .card {
     display: flex;
     flex-direction: column;
@@ -73,6 +63,39 @@ header {
     width: 250px;
     padding: 15px;
 }
+
+.flex {
+    display: flex;
+    position: relative;
+}
+
+.dotbtn {
+    /*  remove button style */
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.cardgrid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-items: center;
+    width: 100vw;
+    padding: 80px;
+    column-gap: auto;
+    row-gap: 80px;
+}
+
 
 .datecontainer {
     display: flex;
@@ -126,11 +149,6 @@ header {
 
 .dot:hover {
     background-color: var(--accent);
-}
-
-.flex {
-    display: flex;
-    position: relative;
 }
 
 .done {
@@ -190,10 +208,6 @@ header {
 
 /* new task form */
 
-.datelabel {
-    margin-top: 7px;
-}
-
 .textarea {
     border-radius: 15px;
     width: 100%;
@@ -219,23 +233,44 @@ header {
     cursor: pointer;
 }
 
-.dotbtn {
-    /*  remove button style */
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    outline: inherit;
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    margin-top: 5px;
-    margin-right: 5px;
+/* login */
+
+.loginform {
+    width: 250px;
+    height: 50%;
+    margin: auto;
+    margin-top: 80px;
+    border: solid 3px var(--text);
+    border-radius: 15px;
+    padding: 20px;
+    background-color: var(--secondary);
 }
 
-/* .dateinput {
+.loginbtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 40%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--primary);
+    font-size: large;
+    border: solid black;
+}
 
-} */
+.loginbtn:hover {
+    cursor: pointer;
+}
+
+.logininput {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: solid black;
+    margin-top: 10px;
+}
+
+.loginlabel {
+    font-size: large;
+}
