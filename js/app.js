@@ -63,7 +63,7 @@ function fillSelect()
          `;
       } else {
       var htmlCode = `
-         <div class="card">
+         <div class="card" id="card${todos['id']}">
             <div class="flex">
                <button id="${todos['id']}" onclick="taskDone(this.id)" class="dotbtn"><span class="dot"></span></button>
                <h1 class="task">${todos['task']}</h1>
