@@ -49,8 +49,8 @@ function fillSelect()
       
       if(todos['done'] == 1) {
       var htmlCode = `
-         <div class="card">
-            <div class="flex">
+         <div class="card scroll1" id="card${todos['id']}">
+            <div class="flex scroll1" id="flex${todos['id']}">
                <button id="${todos['id']}" onclick="taskDone(this.id)" class="dotbtn"><span class="dot2"></span></button>
                <h1 class="task">${todos['task']}</h1>
                <img class="done" src="img/done.png" alt="done">
@@ -63,8 +63,8 @@ function fillSelect()
          `;
       } else {
       var htmlCode = `
-         <div class="card" id="card${todos['id']}">
-            <div class="flex">
+         <div class="card scroll1" id="card${todos['id']}">
+            <div class="flex scroll1" id="flex${todos['id']}">
                <button id="${todos['id']}" onclick="taskDone(this.id)" class="dotbtn"><span class="dot"></span></button>
                <h1 class="task">${todos['task']}</h1>
             </div>

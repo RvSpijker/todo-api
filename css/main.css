@@ -176,7 +176,7 @@ header {
     height: 250px;
     max-height: 250px;
     word-wrap: break-word;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 

@@ -45,13 +45,14 @@ function createTodos()
    // task data ophalen
    $name = $_POST['name'];
    $task = $_POST['task'];
+   $startdate = date("Y-m-d");
 
    $sql = "SELECT id FROM users WHERE username = '$name'";
    Database::query($sql);
    $rows = Database::getAll();
    $user_id = $rows[0]['id'];
 
-   $sql = "INSERT INTO `todos` (`user_id`, `task`) VALUES ('$user_id', '$task')";
+   $sql = "INSERT INTO `todos` (`user_id`, `task`, `startdate`) VALUES ('$user_id', '$task', '$startdate')";
    Database::query($sql);
 }
 

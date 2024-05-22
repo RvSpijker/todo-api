@@ -39,12 +39,5 @@ async function createNewTodo()
         .catch(error => console.log('error', error));
 
     // refresh page
-    // window.location.href = "todos.html";
-
-    getTodos();
-    const collection = document.getElementsByClassName("card");
-    // remove all cards
-    while(collection.length > 0) {
-        collection[0].remove();
-    }
+    window.location.href = "todos.html";
 }
